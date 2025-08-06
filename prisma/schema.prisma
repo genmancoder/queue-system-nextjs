@@ -1,0 +1,34 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/prisma-client-js"
+}
+
+model Queue {
+  id           Int      @id @default(autoincrement())
+  studentId    String
+  firstName    String
+  lastName     String
+  ticketNumber Int
+  status       String   @default("waiting")
+  createdAt    DateTime @default(now())
+  deletedAt    DateTime? // 👈 Soft delete field
+
+  windowId     Int?     // Foreign key (nullable if not always assigned)
+  window       Window?  @relation(fields: [windowId], references: [id])
+}
+
+model Window {
+  id                  Int      @id @default(autoincrement())
+  windowTitle         String
+  windowDescription   String
+  status       String   @default("active")
+  createdAt    DateTime @default(now())
+  deletedAt    DateTime? // 👈 Soft delete field
+
+  queues            Queue[]  // Relation back to Queue (1:N)
+}

@@ -1,0 +1,19 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/prisma-client-js"
+}
+
+model Queue {
+  id           Int      @id @default(autoincrement())
+  studentId    String
+  firstName    String
+  lastName     String
+  ticketNumber Int
+  status       String   @default("waiting")
+  createdAt    DateTime @default(now())
+}
