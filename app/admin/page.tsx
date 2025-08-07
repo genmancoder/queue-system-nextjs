@@ -88,7 +88,9 @@ export default function Admin() {
             <button onClick={showDialog} className="bg-red-800 text-white px-6 py-3 rounded">
                 Clear Queue
             </button>
-
+            <button onClick={showDialog} className="bg-red-800 text-white px-6 py-3 rounded">
+                View Queue
+            </button>
             <Dialog open={open} onOpenChange={setOpen} >
                 <DialogOverlay className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"  />
                 <DialogContent>

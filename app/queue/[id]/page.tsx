@@ -25,7 +25,7 @@ type WindowDetails = {
     windowDescription: string;
 }
 
-export default function Admin() {
+export default function Queue() {
     const [current, setCurrent] = useState<Queue | null>(null)
     const [pending, setPending] = useState<Queue[]>([])
     const [open, setOpen] = useState(false);
@@ -136,12 +136,12 @@ export default function Admin() {
                 <button onClick={callNext} className="bg-green-800 text-white px-6 py-3 rounded cursor-pointer">
                     Call Next
                 </button>
-                {/* <button onClick={showDialog} className="bg-primary text-white px-6 py-3 rounded">
+                <button onClick={showDialog} className="bg-primary text-white px-6 py-3 rounded">
                     Clear Queue
                 </button>
                 <button onClick={showDialog} className="bg-primary text-white px-6 py-3 rounded">
                     View Queue
-                </button> */}
+                </button>
             </div>
 
             <Dialog open={open} onOpenChange={setOpen} >
@@ -194,7 +194,7 @@ export default function Admin() {
                                     <td className="p-2 border">{p.ticketNumber}</td>
                                     <td className="p-2 border">{p.studentId}</td>
                                     <td className="p-2 border">
-                                        {p.firstName.toUpperCase()} {p.lastName.toUpperCase()}
+                                        {p.firstName} {p.lastName}
                                     </td>
                                 </tr>
                             ))

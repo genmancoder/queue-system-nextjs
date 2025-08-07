@@ -8,11 +8,10 @@ export async function POST(req: Request) {
     const { studentId, firstName, lastName, windowId } = body
   
     const existingTicket = await prisma.queue.findFirst({
-        where: { studentId: studentId, windowId: windowId },    })
+        where: { studentId: studentId, windowId: windowId, status: "waiting" },    })
 
-    if (existingTicket) {
-        // Return existing ticket if found
-        return NextResponse.json(existingTicket)
+    if (existingTicket) {                
+            return NextResponse.json(existingTicket)        
     }
     
     const lastTicket = await prisma.queue.findFirst({

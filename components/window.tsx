@@ -39,7 +39,7 @@ export function Window({ title, windowId }: WindowProps) {
         const res = await fetch('/api/queue/pending/'+windowId)
         if (res.ok) {
             const data = await res.json()
-            console.log(data)
+            console.log("Pending data", data)
             setPending(data)
         }
 
@@ -59,8 +59,8 @@ export function Window({ title, windowId }: WindowProps) {
     }, [])
 
 
-    const onquee = pending?.slice(0, 2)
-    console.log(onquee?.length)
+    const pendingquee = pending?.slice(0, 2)
+    console.log("length", pendingquee?.length)
 
     return (
         <div className="border rounded-md p-8 min-h-[428px] w-[250px] bg-white shadow">
@@ -82,8 +82,8 @@ export function Window({ title, windowId }: WindowProps) {
                 <p className="text-center pb-5 font-semibold">On Queue</p>
                 <div className="flex flex-col justify-center items-center">
 
-                    {onquee?.length > 0 ? (
-                        onquee.map((p) => (
+                    {pendingquee?.length > 0 ? (
+                        pendingquee.map((p) => (
                             <p key={p.ticketNumber} className="font-bold text-2xl ">{p.ticketNumber}</p>
                         ))
                     ) : (

@@ -173,7 +173,7 @@ export default function Request() {
 
                     {error && <p className="text-red-600 mb-4">{error}</p>}
 
-                    <button onClick={generateTicket} className="bg-blue-600 text-white px-6 py-3 rounded">
+                    <button onClick={generateTicket} className="bg-primary text-white px-6 py-3 rounded">
                         Generate Ticket
                     </button>
 
