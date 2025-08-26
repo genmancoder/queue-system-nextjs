@@ -117,6 +117,20 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  username: 'username',
+  password: 'password',
+  fullName: 'fullName',
+  nickname: 'nickname',
+  role: 'role',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+};
+
 exports.Prisma.QueueScalarFieldEnum = {
   id: 'id',
   studentId: 'studentId',
@@ -138,6 +152,15 @@ exports.Prisma.WindowScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
+exports.Prisma.UserWindowScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  windowId: 'windowId',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -150,8 +173,10 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
+  User: 'User',
   Queue: 'Queue',
-  Window: 'Window'
+  Window: 'Window',
+  UserWindow: 'UserWindow'
 };
 
 /**
